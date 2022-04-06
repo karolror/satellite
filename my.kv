@@ -1,0 +1,59 @@
+WindowManager:
+    MainWindow:
+    ResultsWindow:
+
+<MainWindow>:
+    name: "main"
+    GridLayout:
+        cols: 1
+        size_hint: (0.6, 0.8)
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Image:
+            source: "logo.png"
+            size_hint: (1.5,1.5)
+        Label:
+            text: "Hello! What can I calculate for you?"
+        Button:
+            text: "Load File"
+            background_color: "#00ffbf"
+            size_hint: (1,0.5)
+            bold: True
+        Button:
+            text: "Calculate"
+            size_hint: (1,0.5)
+            bold: True
+        Button:
+            text: "Results"
+            size_hint: (1,0.5)
+            bold: True
+            on_release:
+                app.root.current = "results"
+                root.manager.transition.direction = "left"
+<ResultsWindow>:
+    name: "results"
+    GridLayout:
+        cols: 1
+        TextInput:
+            id: label_res
+            text: "Tekst"
+            size_hint: (1.5,1.5)
+            multiline: True
+        GridLayout:
+            cols: 4
+            size_hint: (1,0.5)
+            Button:
+                text: "Allel Frequencies"
+                on_press: root.change_text()
+            Button:
+                text: "Genotype Frequencies"
+            Button:
+                text: "Heterozygosity"
+            Button:
+                text: "F Statistics"
+        Button:
+            text: "Back"
+            size_hint: (1,0.2)
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
