@@ -13,20 +13,29 @@ WindowManager:
             source: "logo.png"
             size_hint: (1.5,1.5)
         Label:
+            id: hello_label
             text: "Hello! What can I calculate for you?"
-        Button:
-            text: "Load File"
-            background_color: "#00ffbf"
+            color: "white"
+        TextInput:
+            id: path_input
+            hint_text: "\n Paste here path to your csv file..."
             size_hint: (1,0.5)
             bold: True
+            halign: "center"
+            valign: "middle"
         Button:
             text: "Calculate"
             size_hint: (1,0.5)
             bold: True
+            on_press: root.calculate()
+
         Button:
+            id: results_button
             text: "Results"
             size_hint: (1,0.5)
             bold: True
+            background_color: "#00ffbf"
+            disabled: True
             on_release:
                 app.root.current = "results"
                 root.manager.transition.direction = "left"
@@ -51,6 +60,9 @@ WindowManager:
                 text: "Heterozygosity"
             Button:
                 text: "F Statistics"
+        Button:
+            text: "Save xlsx"
+            size_hint: (1,0.2)
         Button:
             text: "Back"
             size_hint: (1,0.2)
