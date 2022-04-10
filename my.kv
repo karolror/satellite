@@ -45,7 +45,7 @@ WindowManager:
         cols: 1
         TextInput:
             id: label_res
-            text: "Tekst"
+            text: "select buttons to view the results:"
             size_hint: (1.5,1.5)
             multiline: True
         GridLayout:
@@ -53,7 +53,7 @@ WindowManager:
             size_hint: (1,0.5)
             Button:
                 text: "Allel Frequencies"
-                on_press: root.change_text()
+                on_press: root.show_allel()
             Button:
                 text: "Genotype Frequencies"
             Button:
